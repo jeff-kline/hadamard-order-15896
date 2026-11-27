@@ -40,7 +40,7 @@ Failed variants, recorded **NOT PERFORMED**: Zenodo's six compound `metadata.tit
 
 The per-query GitHub and Zenodo results and the 19 arXiv submission titles are in [queries.tsv](queries.tsv).
 
-The release-preparation search on the same date also queried GitHub code for `Miyamoto Hadamard 15896` and `Williamson 15896`, and GitHub repositories for `Hadamard open problems orders`. Each returned zero rows. The pinned frontier list, the quaternary table and the arXiv survey were rechecked. A fresh search is due before making the repository public.
+The release-preparation search on the same date also queried GitHub code for `Miyamoto Hadamard 15896` and `Williamson 15896`, and GitHub repositories for `Hadamard open problems orders`. Each returned zero rows. The pinned frontier list, the quaternary table and the arXiv survey were rechecked. The [final prepublication rescan](FINAL-PRIOR-ART.md) records the later searches.
 
 To repeat the two earlier-order checks, download the two linked QH files above, confirm the listed SHA-256 digests, and run the following from the release root with the text files in the current directory.
 

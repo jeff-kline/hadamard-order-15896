@@ -26,6 +26,10 @@ Miyamoto's theorem applies at real order $8n$ when there is a conference matrix 
 | 18,296 | 381 | Turyn, $q=761$ | 2287 |
 | 23,096 | 481 | Turyn, $q=961$ | 2887 |
 
+## Orders below 10,000
+
+The documented inputs give 79 final orders below 10,000, all previously known. The Turyn/Spence and Paley conditions in the paper give 27 of them, and the scalar case adds 56. The full table lists the input and earlier evidence for each order. Order 5,912 overlaps Kumar's October 2026 discovery. Order 8,696 was already obtainable by an older construction. [All 79 orders](audit/orders-below-10000.tsv) · [Recent and sporadic comparisons](audit/FINAL-PRIOR-ART.md#small-orders)
+
 ## Rebuild and verify
 
 Appendix A of the paper specifies each entry of the order-15,896 matrix and its byte ordering. Run `make verify` here with GCC or Clang in C++17 mode, GNU Make, gzip and shasum. The default flags optimize for the local processor. Use `make verify CXXFLAGS=-O3` on compilers that do not accept `-march=native`. It rebuilds the matrix, compares it byte for byte with the archived certificate, and passes the shipped matrix to the independently written row-pair verifier. Run `make paper` with pdfLaTeX to typeset the note. [Builder](evidence/build.cpp) · [Verifier](evidence/verify.cpp) · [Packed matrix](evidence/H15896.packed.gz) · [Verification record](VERIFICATION.md)
