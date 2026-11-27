@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "Please cite the paper and identify the version used."
+title: "A Hadamard matrix of order 15896"
+version: "0.1.0"
+type: software
+authors:
+  - family-names: Kline
+    given-names: Jeffery
+license: GPL-3.0-only
+keywords:
+  - Hadamard matrices
+  - conference matrices
+  - Williamson-type matrices
+abstract: >-
+  A fixed pairing in the Cooper–Wallis design of order 12 works for four
+  Williamson-type matrices of any common positive odd order. The paired-block
+  conference construction gives real Hadamard matrices of orders 15896,
+  18008, 18296 and 23096. The software constructs a matrix of order 15896 and
+  checks every pair of distinct rows of the packed certificate.
+repository-code: "https://github.com/jeff-kline/hadamard-order-15896"

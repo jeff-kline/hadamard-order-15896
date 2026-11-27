@@ -1,0 +1,139 @@
+\documentclass[10pt]{article}
+\usepackage[letterpaper,margin=0.85in]{geometry}
+\input{glyphtounicode}
+\pdfgentounicode=1
+\pdftrailerid{}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{booktabs}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\hypersetup{pdftitle={A Hadamard matrix of order 15896},pdfauthor={Jeffery Kline}}
+\newtheorem{theorem}{Theorem}
+\newtheorem{lemma}[theorem]{Lemma}
+\newcommand{\tr}{^{\mathsf T}}
+\emergencystretch=2em
+
+\title{A Hadamard matrix of order 15896}
+\author{Jeffery Kline}
+\date{November 27, 2026\\[3pt]\small Version 0.1.0, release candidate}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+We construct a Hadamard matrix of order 15,896. We pair the rows and columns of the order-12 Cooper--Wallis design so that each two-by-two block is Hadamard after substitution of any four Williamson-type matrices of the same odd order. This pairing supplies the input to the previously published conference-matrix construction. Together they give Hadamard matrices of orders 15,896, 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
+\end{abstract}
+
+\section{Introduction}
+
+A Hadamard matrix of order $N$ is an $N\times N$ matrix $H$ with entries $\pm1$ and $HH\tr=NI$. Call a Hadamard matrix \emph{paired-block} if its rows and its columns can each be partitioned into ordered pairs so that every $2\times2$ block on a row pair and a column pair is Hadamard. A conference matrix of order $c$ has zero diagonal, $\pm1$ off the diagonal, and row Gram matrix $(c-1)I$.
+
+Theorem~1 of the order-4792 paper~\cite{Kl4792} gives a Hadamard matrix of order $8m$ from a symmetric or skew-symmetric conference matrix of order $m+1$ and a paired-block Hadamard matrix of order $2(m-1)$, for odd $m\ge3$. That paper supplies pairs for the order-52 Cooper--Wallis design when two of the four Williamson-type members are equal. We give pairs for the order-12 design that work for every Williamson-type quadruple. Taking $m=6w+1$ for a quadruple of order $w$ then gives Hadamard matrices of orders 15,896, 18,008, 18,296 and 23,096. The release includes the matrix of order 15,896 and an all-pairs verification of its Gram matrix. We found no earlier construction of the four orders in the sources searched through November 27, 2026.
+
+\section{The order-12 pairing}
+
+Let $A,B,C,D$ be the circulants with first rows $(1,0,0),(0,1,0),(0,0,1),(0,0,0)$, respectively. If a first row is $a$, its circulant has entry $a_{j-i\bmod 3}$ at $(i,j)$ for indices $0,1,2$. Use the back-diagonal reversal $R_{ij}=1$ for $i+j=2$ and $R_{ij}=0$ otherwise. In the Goethals--Seidel layout~\cite{GS70} put
+\[
+G(A,B,C,D)=
+\begin{pmatrix}
+ A & BR & CR & DR\\
+ -BR & A & -D\tr R & C\tr R\\
+ -CR & D\tr R & A & -B\tr R\\
+ -DR & -C\tr R & B\tr R & A
+\end{pmatrix}.
+\]
+Form $E_1,E_2,E_3,E_4$ by applying $G$ to the four ordered inputs
+\[
+(A,B,C,D),\qquad(B,-A,D,-C),\qquad(C,-D,-A,B),\qquad(D,C,-B,-A).
+\]
+The four first rows above are the length-three entry in Cooper and Wallis's table following Corollary~4~\cite{CW72}. For an implementation of the Cooper--Wallis array, see SageMath~\cite{Sage}. The supports of the $E_i$ partition the entries, with nonzero coefficients $\pm1$. Indeed, each $3\times3$ block uses the three disjoint circulant supports with the same transpose and reversal operations. The Cooper--Wallis identity, read as the Gram of $L=\sum_{i=1}^4 x_i E_i$ in commuting indeterminates, is $LL\tr=3(\sum_i x_i^2)I_{12}$. Here $A,B,C$ are permutation matrices and $D=0$, giving $AA\tr+BB\tr+CC\tr+DD\tr=3I_3$. Comparing coefficients gives
+\begin{equation}\label{eq:design}
+E_iE_i\tr=3I_{12},\qquad E_iE_j\tr+E_jE_i\tr=0\quad (i\ne j).
+\end{equation}
+
+\begin{lemma}\label{lem:pairing}
+Use the following ordered pairs of zero-based indices of $L$, numbering each axis consecutively across the blocks of size three.
+\[
+\begin{array}{@{}lrrrrrr@{}}
+\text{Rows} &(0,4)&(1,10)&(2,7)&(3,5)&(6,8)&(9,11)\\
+\text{Columns} &(1,10)&(3,2)&(4,7)&(6,9)&(8,0)&(11,5)
+\end{array}
+\]
+For every scalar sign assignment $x_i\in\{1,-1\}$, all 36 blocks on these pairs are Hadamard.
+\end{lemma}
+
+\begin{proof}
+Write an entry $\pm x_i$ as $\pm i$. Reading the four entries of each block in row-major order gives the following table, with rows and columns in the displayed pair orders.
+{\small
+\[
+\begin{array}{@{}rrrrrr@{}}
+(2,3,2,-3)&(4,3,3,-4)&(1,-4,1,4)&(1,-2,2,1)&(-3,1,-3,-1)&(-4,-2,-4,2)\\
+(1,-4,4,1)&(1,2,-1,2)&(-2,-3,3,-2)&(-4,3,4,3)&(1,3,1,-3)&(-2,4,2,4)\\
+(3,-2,3,2)&(-2,1,-2,-1)&(4,1,-4,1)&(-3,-4,3,-4)&(-4,2,2,4)&(3,1,-1,3)\\
+(-1,1,-4,-4)&(1,2,2,-1)&(2,2,3,-3)&(-3,-4,4,-3)&(4,-4,2,2)&(-3,3,1,1)\\
+(4,-4,-1,-1)&(3,3,-4,4)&(-2,2,3,3)&(1,-1,2,2)&(3,-1,1,3)&(2,-4,-4,-2)\\
+(-3,2,2,3)&(4,4,3,-3)&(-1,4,4,1)&(1,1,-2,2)&(-2,2,4,4)&(3,3,1,-1)
+\end{array}
+\]}
+Each tuple has an odd number of minus signs, and each variable index has even multiplicity. Thus $abcd=-1$ for all 16 assignments, where $a,b,c,d$ are the entries in row-major order. This gives $ac+bd=0$.
+\end{proof}
+
+\begin{theorem}\label{thm:general}
+Let $w$ be a positive odd integer with a Williamson-type quadruple of order $w$. If a real conference matrix of order $6w+2$ exists, then a real Hadamard matrix of order $8(6w+1)$ exists.
+\end{theorem}
+
+\begin{proof}
+Write the quadruple as $W_1,\dots,W_4$, sign matrices of order $w$ with $W_iW_j\tr=W_jW_i\tr$ for all $i,j$ and $\sum_i W_iW_i\tr=4wI_w$. Put $F=\sum_i E_i\otimes W_i$. For each outer row pair $(r,s)$ and each inner index $u$, pair $(r,u)$ with $(s,u)$. For each outer column pair $(c,d)$ and inner index $v$, pair $(c,v)$ with $(d,v)$. The four entries at these pairs evaluate the corresponding block of $L$ at $x_i=(W_i)_{uv}$. Lemma~\ref{lem:pairing} gives a Hadamard block at every pair. In particular the pairing works for noncirculant members.
+
+In $FF\tr$, the terms indexed by $(i,j)$ and $(j,i)$ cancel for $i\ne j$ by amicability and~\eqref{eq:design}. The diagonal terms sum to $3I_{12}\otimes\sum_i W_iW_i\tr=12wI_{12w}$. Thus $F$ is paired-block of order $12w$. Put $m=6w+1$, so $F$ has order $2(m-1)$ and the conference has order $m+1$. By Delsarte, Goethals and Seidel~\cite[Corollary~2.2]{DGS71}, the conference matrix is equivalent to one of symmetric or skew type. Theorem~1 of~\cite{Kl4792} applies and gives order $8m$.
+\end{proof}
+
+\section{Four orders}
+
+For a prime power $m=6w+1$, odd $w$ makes $m\equiv3\pmod4$, so Paley's construction~\cite{Pa33} gives the requisite skew conference matrix. For a prime power $q\equiv1\pmod4$, Turyn~\cite{Tu72} gives a quadruple of order $(q+1)/2$ and Spence~\cite[Theorem~4]{Sp77} gives one of order $q^r(q+1)/2$ for $r\ge0$. The parameters below satisfy the two prime-power conditions separately. The entries in the $m$ column are all prime.
+\begin{center}
+\begin{tabular}{@{}rrrrl@{}}
+\toprule
+Hadamard order $8m$ & $m$ & Conference order $m+1$ & $w$ & Williamson-type source\\
+\midrule
+15,896 & 1987 & 1988 & 331 & Turyn, $q=661$\\
+18,008 & 2251 & 2252 & 375 & Spence, $q=5$, $r=3$\\
+18,296 & 2287 & 2288 & 381 & Turyn, $q=761$\\
+23,096 & 2887 & 2888 & 481 & Turyn, $q=31^2$\\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\section{The matrix of order 15,896}
+
+The construction uses Turyn's quadruple of order 331, the paired matrix of order $12\cdot331=3972$, and the Paley skew conference of order $1988$. For the latter, set $Q_{xy}=\chi(y-x)$ for $x,y\in\mathbb F_{1987}$, with $\chi$ the quadratic character extended by $\chi(0)=0$. Border $Q$ by a top row of ones, a left column of minus ones and a zero corner. Applying the order-4792 construction to these inputs gives $8\cdot1987=15896$. The program \texttt{evidence/build.cpp} makes the Turyn input over $\mathbb F_{661}[x]/(x^2-2)$ with primitive element $2+x$, checks the Williamson-type identities, and writes the packed matrix.
+
+The $31{,}585{,}352$-byte gzip payload of \texttt{evidence/H15896.packed.gz} holds $15{,}896$ rows of $1{,}987$ bytes. Entries are packed in row-major order, most significant bit first, with $0$ for $+1$ and $1$ for $-1$.
+
+The program \texttt{evidence/verify.cpp} reads only this payload and checks its exact length and the Hamming distance of every two distinct rows. For sign rows the inner product is $N-2d$, where $d$ is their Hamming distance. All $\binom{15896}{2}=126{,}333{,}460$ unordered row pairs have distance $7{,}948$. The diagonal inner products are $15{,}896$ because each entry is a sign. This verifies $HH\tr=15896I$ directly from the bytes.
+
+\section{Earlier orders and scope of the search}
+
+Miyamoto's Theorem~7~\cite{Mi91} takes a conference matrix of order $m+1$ and a quaternary Hadamard matrix of order $m-1$ to give a quaternary Hadamard matrix of order $4m$, which expands to a real Hadamard matrix of order $8m$. A quaternary Hadamard matrix $Y$ of order $k$ has entries in $\{\pm1,\pm i\}$ and satisfies $YY^*=kI$. Zaitsev~\cite{Zai} publishes quaternary matrices of orders 1566 and 1782. With the Paley conferences for $m=1567$ and $m=1783$, these give the earlier orders 12,536 and 14,264. Zaitsev lists the quaternary order 1986 as open in his table, and the three quaternary orders 2250, 2286 and 2886 lie beyond its range.
+
+Kumar's pinned update~\cite{Ku} to Cati and Pasechnik's Table~4~\cite{CP} lists exponents $4,4,4,5$ at the four odd parts $1987,2251,2287,2887$, respectively, in its table of orders $2^a m$. A later release supplies $16\cdot2887$~\cite{KlLarge}. The construction here gives exponent $3$ at all four odd parts. The 2026 survey's list of real orders~\cite{EKLO} runs through $10{,}000$. The release repository records the dated searches of these tables, public repositories and literature indices.
+
+\section{Role of AI}
+AI assisted the derivations, the computer verification, the literature search and the exposition under the author's direction. Process-separated AI reviews checked the proofs and certificates; they are not independent expert peer review, and no independent human expert has examined the proofs. The release repository records the sources, the reviews and their dispositions.
+
+\begin{thebibliography}{99}\small
+\bibitem{CP} M. Cati and D. V. Pasechnik, A database of constructions of Hadamard matrices, \href{https://arxiv.org/abs/2411.18897v2}{arXiv:2411.18897v2} (2025).
+\bibitem{CW72} Joan Cooper and Jennifer Wallis, A construction for Hadamard arrays, \emph{Bull. Austral. Math. Soc.} \textbf{7} (1972), 269--277, \href{https://doi.org/10.1017/S0004972700045019}{doi:10.1017/S0004972700045019}.
+\bibitem{DGS71} P. Delsarte, J. M. Goethals and J. J. Seidel, Orthogonal matrices with zero diagonal. II, \emph{Canad. J. Math.} \textbf{23} (1971), 816--832, \href{https://doi.org/10.4153/CJM-1971-091-x}{doi:10.4153/CJM-1971-091-x}.
+\bibitem{EKLO} R. Egan, I. S. Kotsireas, S. London and P. \'O~Cath\'ain, Recent progress in the construction of Hadamard matrices, \href{https://arxiv.org/abs/2610.27175v2}{arXiv:2610.27175v2} (2026).
+\bibitem{GS70} J. M. Goethals and J. J. Seidel, A skew Hadamard matrix of order 36, \emph{J. Austral. Math. Soc.} \textbf{11} (1970), 343--344.
+\bibitem{Kl4792} J. Kline, A Hadamard matrix of order 4792, version 0.1.0 (2026), \href{https://doi.org/10.5281/zenodo.24597897}{doi:10.5281/zenodo.24597897}.
+\bibitem{KlLarge} J. Kline, New Hadamard orders above $10^4$, version 0.1.0 (2026), \href{https://doi.org/10.5281/zenodo.24517277}{doi:10.5281/zenodo.24517277}.
+\bibitem{Ku} K. Kumar, \href{https://github.com/vatskishan03/Hadamard/blob/d885022144ba6bf4efa8315e14871a3736947527/FRONTIER.md\#L58-L62}{Updated Table 4}, Hadamard repository, commit \texttt{d885022} (accessed November 27, 2026).
+\bibitem{Mi91} M. Miyamoto, A construction of Hadamard matrices, \emph{J. Combin. Theory Ser. A} \textbf{57} (1991), 86--108, \href{https://doi.org/10.1016/0097-3165(91)90008-5}{doi:10.1016/0097-3165(91)90008-5}.
+\bibitem{Pa33} R. E. A. C. Paley, On orthogonal matrices, \emph{J. Math. Phys.} \textbf{12} (1933), 311--320.
+\bibitem{Sage} The Sage Developers, SageMath, modules \href{https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/matrices/hadamard_matrix.html}{Hadamard matrices} and \href{https://doc.sagemath.org/html/en/reference/combinat/sage/combinat/t_sequences.html}{T-sequences}.
+\bibitem{Sp77} E. Spence, An infinite family of Williamson matrices, \emph{J. Austral. Math. Soc. Ser. A} \textbf{24} (1977), 252--256, \href{https://doi.org/10.1017/S1446788700020255}{doi:10.1017/S1446788700020255}.
+\bibitem{Tu72} R. J. Turyn, An infinite class of Williamson matrices, \emph{J. Combin. Theory Ser. A} \textbf{12} (1972), 319--321, \href{https://doi.org/10.1016/0097-3165(72)90095-7}{doi:10.1016/0097-3165(72)90095-7}.
+\bibitem{Zai} V. Zaitsev, \href{https://www.cs.uleth.ca/~zaitsevv/quaternary.html}{Quaternary Hadamard matrices}, online table (accessed November 27, 2026).
+\end{thebibliography}
+\end{document}

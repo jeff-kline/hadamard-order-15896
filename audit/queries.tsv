@@ -1,0 +1,50 @@
+date	service	query	result
+2026-11-27	gh search code	Hadamard 12536	0 rows
+2026-11-27	gh search repos	Hadamard 12536	0 rows
+2026-11-27	gh search code	Hadamard "8 x 1567"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 1567"	0 rows
+2026-11-27	gh search code	Hadamard 14264	0 rows
+2026-11-27	gh search repos	Hadamard 14264	0 rows
+2026-11-27	gh search code	Hadamard "8 x 1783"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 1783"	0 rows
+2026-11-27	gh search code	Hadamard 15896	0 rows
+2026-11-27	gh search repos	Hadamard 15896	0 rows
+2026-11-27	gh search code	Hadamard "8 x 1987"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 1987"	0 rows
+2026-11-27	gh search code	Hadamard 18008	0 rows
+2026-11-27	gh search repos	Hadamard 18008	0 rows
+2026-11-27	gh search code	Hadamard "8 x 2251"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 2251"	0 rows
+2026-11-27	gh search code	Hadamard 18296	0 rows
+2026-11-27	gh search repos	Hadamard 18296	0 rows
+2026-11-27	gh search code	Hadamard "8 x 2287"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 2287"	0 rows
+2026-11-27	gh search code	Hadamard 23096	0 rows
+2026-11-27	gh search repos	Hadamard 23096	0 rows
+2026-11-27	gh search code	Hadamard "8 x 2887"	0 rows
+2026-11-27	gh search repos	Hadamard "8 x 2887"	0 rows
+2026-11-27	Zenodo REST	hadamard AND 12536	0 records
+2026-11-27	Zenodo REST	hadamard AND 14264	0 records
+2026-11-27	Zenodo REST	hadamard AND 15896	0 records
+2026-11-27	Zenodo REST	hadamard AND 18008	0 records
+2026-11-27	Zenodo REST	hadamard AND 18296	0 records
+2026-11-27	Zenodo REST	hadamard AND 23096	0 records
+2026-11-27	arXiv expanded submission query	2611.25638v2	Invariants of subfactors associated to Petrescu's Hadamard matrices of order 7
+2026-11-27	arXiv expanded submission query	2611.20136v2	An isolated complex Hadamard matrix with nonzero defect
+2026-11-27	arXiv expanded submission query	2611.25616v1	Subfactor symmetries of real Hadamard matrices
+2026-11-27	arXiv expanded submission query	2611.18296v1	From Butson Hadamard switching to graph switching and back
+2026-11-27	arXiv expanded submission query	2611.21871v1	Obstructions to Hadamard Deformations of Fourier Matrices
+2026-11-27	arXiv expanded submission query	2611.24322v1	Power projections, Gram structures, and finite-field lifting of Butson Hadamard matrices
+2026-11-27	arXiv expanded submission query	2611.06148v1	Hadamard configurations and sharp cubic-period bounds for stealth in dimensions 10, 11, and 12
+2026-11-27	arXiv expanded submission query	2611.06917v1	Using topology to reveal all mutually unbiased bases in dimension six
+2026-11-27	arXiv expanded submission query	2611.18232v1	Maximally Entangled Mutually Unbiased Bases in Bipartite Systems of Unequal Prime Dimensions
+2026-11-27	arXiv expanded submission query	2611.31067v1	$k$-ary Legendre pairs
+2026-11-27	arXiv expanded submission query	2611.29535v1	A Finiteness Result for Commuting Squares and Quantitative Ocneanu Rigidity
+2026-11-27	arXiv expanded submission query	2611.26873v1	Inexact Proximal Method on Hadamard Manifolds
+2026-11-27	arXiv expanded submission query	2611.30893v1	A symmetric eigenvalue lower bound for Hadamard products
+2026-11-27	arXiv expanded submission query	2611.14140v1	Davenport Constants of High-Dimensional Integer Sets
+2026-11-27	arXiv expanded submission query	2611.19809v1	No complete set of mutually unbiased bases in C^6 without Fourier vanishing
+2026-11-27	arXiv expanded submission query	2611.34369v1	Robin--Hadamard states for unstable field in half-Minkowski spacetime
+2026-11-27	arXiv expanded submission query	2611.22939v1	Hadamard inverse mapping theorem for certain continuously Gateaux differentiable mappings
+2026-11-27	arXiv expanded submission query	2611.15083v1	Rayleigh--Taylor instability and Hadamard ill-posedness for the rotating free-boundary Euler equations in three dimensions
+2026-11-27	arXiv expanded submission query	2611.26751v1	Three-Dimensional Ultrasound Localization Microscopy Using Hadamard-Encoded Multipulse and 4D Denoising on a 256-Channel System with a 1024-element Matrix Array: A Feasibility Study in Human Kidney Transplants
