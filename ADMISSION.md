@@ -2,7 +2,7 @@
 
 Current verdict: NOT YET ADMITTED
 
-Version 0.1.0 of *A Hadamard matrix of order 15896* is a local release candidate under Jeffery Kline's [public research standard](https://jeff-kline.github.io/posts/research-program/index.html).
+Version 0.1.0 of *An infinite family of paired Hadamard matrices from Williamson-type matrices* is a private release candidate under Jeffery Kline's [public research standard](https://jeff-kline.github.io/posts/research-program/index.html).
 
 | Gate | Evidence | Status and remaining work |
 |---|---|---|
@@ -12,6 +12,6 @@ Version 0.1.0 of *A Hadamard matrix of order 15896* is a local release candidate
 
 ## Publication plan
 
-The intended repository is `jeff-kline/hadamard-order-15896` and the planned tag is `v0.1.0`. The citation file names that intended destination. Local preparation and verification are delegated. The author controls remote repository creation and visibility, all pushes and tags, the GitHub Release, the Zenodo integration and any public-site listing.
+The private repository is `jeff-kline/hadamard-order-15896` and the planned tag is `v0.1.0`. Local preparation and verification are delegated. The author controls remote repository creation and visibility, all pushes and tags, the GitHub Release, the Zenodo integration and any public-site listing.
 
 The planned archive uses the Zenodo GitHub integration. Enable it before creating the GitHub Release. Before the release, retrieve the GitHub API tag zipball twice and compare the bytes. After archival, compare the public Zenodo download with the pinned GitHub zipball, inspect the record metadata, resolve the version DOI, and verify the internal manifest. Record the active DOI and version in living metadata after these checks.

@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "Please cite the paper and identify the version used."
-title: "A Hadamard matrix of order 15896"
+title: "An infinite family of paired Hadamard matrices from Williamson-type matrices"
 version: "0.1.0"
 type: software
 authors:
@@ -12,9 +12,5 @@ keywords:
   - conference matrices
   - Williamson-type matrices
 abstract: >-
-  A fixed pairing in the Cooper–Wallis design of order 12 works for four
-  Williamson-type matrices of any common positive odd order. The paired-block
-  conference construction gives real Hadamard matrices of orders 15896,
-  18008, 18296 and 23096. The software constructs a matrix of order 15896 and
-  checks every pair of distinct rows of the packed certificate.
+  Every Williamson-type quadruple of positive odd order w gives a Hadamard matrix of order 12w whose rows and columns can be paired into two-by-two Hadamard blocks. We give one pairing of the order-12 Cooper–Wallis design that works for every such quadruple. Turyn’s quadruples give infinitely many distinct paired orders. When a conference matrix of order 6w+2 exists, the published paired-block construction gives a Hadamard matrix of order 8(6w+1). At w=331 we construct the matrix of order 15,896 and verify every pair of rows. The theorem also gives orders 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
 repository-code: "https://github.com/jeff-kline/hadamard-order-15896"

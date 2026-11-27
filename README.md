@@ -1,10 +1,10 @@
-# A Hadamard matrix of order 15896
+# An infinite family of paired Hadamard matrices from Williamson-type matrices
 
 Jeffery Kline
 
 **Version 0.1.0, release candidate.** [Paper](paper/main.pdf) · [TeX source](paper/main.tex) · [Release record](ADMISSION.md)
 
-We construct a Hadamard matrix of order 15,896. We pair the rows and columns of the order-12 Cooper–Wallis design so that each two-by-two block is Hadamard after substitution of any four Williamson-type matrices of the same odd order. This pairing supplies the input to the previously published conference-matrix construction. Together they give Hadamard matrices of orders 15,896, 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
+Every Williamson-type quadruple of positive odd order $w$ gives a Hadamard matrix of order $12w$ whose rows and columns can be paired into two-by-two Hadamard blocks. We give one pairing of the order-12 Cooper–Wallis design that works for every such quadruple. Turyn’s quadruples give infinitely many distinct paired orders. When a conference matrix of order $6w+2$ exists, the published paired-block construction gives a Hadamard matrix of order $8(6w+1)$. At $w=331$ we construct the matrix of order 15,896 and verify every pair of rows. The theorem also gives orders 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
 
 ## What is new
 
@@ -28,7 +28,7 @@ Miyamoto's theorem applies at real order $8n$ when there is a conference matrix 
 
 ## Rebuild and verify
 
-Run `make verify` here with GCC or Clang in C++17 mode, GNU Make, gzip and shasum. The default flags optimize for the local processor. Use `make verify CXXFLAGS=-O3` on compilers that do not accept `-march=native`. It rebuilds the matrix, compares it byte for byte with the archived certificate, and passes the shipped matrix to the independently written row-pair verifier. Run `make paper` with pdfLaTeX to typeset the note. [Builder](evidence/build.cpp) · [Verifier](evidence/verify.cpp) · [Packed matrix](evidence/H15896.packed.gz) · [Verification record](VERIFICATION.md)
+Appendix A of the paper specifies each entry of the order-15,896 matrix and its byte ordering. Run `make verify` here with GCC or Clang in C++17 mode, GNU Make, gzip and shasum. The default flags optimize for the local processor. Use `make verify CXXFLAGS=-O3` on compilers that do not accept `-march=native`. It rebuilds the matrix, compares it byte for byte with the archived certificate, and passes the shipped matrix to the independently written row-pair verifier. Run `make paper` with pdfLaTeX to typeset the note. [Builder](evidence/build.cpp) · [Verifier](evidence/verify.cpp) · [Packed matrix](evidence/H15896.packed.gz) · [Verification record](VERIFICATION.md)
 
 ## Role of AI
 

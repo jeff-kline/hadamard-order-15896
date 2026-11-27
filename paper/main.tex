@@ -6,13 +6,13 @@
 \usepackage{amsmath,amssymb,amsthm}
 \usepackage{booktabs}
 \usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
-\hypersetup{pdftitle={A Hadamard matrix of order 15896},pdfauthor={Jeffery Kline}}
+\hypersetup{pdftitle={An infinite family of paired Hadamard matrices from Williamson-type matrices},pdfauthor={Jeffery Kline}}
 \newtheorem{theorem}{Theorem}
 \newtheorem{lemma}[theorem]{Lemma}
 \newcommand{\tr}{^{\mathsf T}}
 \emergencystretch=2em
 
-\title{A Hadamard matrix of order 15896}
+\title{An infinite family of paired Hadamard matrices\\from Williamson-type matrices}
 \author{Jeffery Kline}
 \date{November 27, 2026\\[3pt]\small Version 0.1.0, release candidate}
 
@@ -20,12 +20,14 @@
 \maketitle
 
 \begin{abstract}
-We construct a Hadamard matrix of order 15,896. We pair the rows and columns of the order-12 Cooper--Wallis design so that each two-by-two block is Hadamard after substitution of any four Williamson-type matrices of the same odd order. This pairing supplies the input to the previously published conference-matrix construction. Together they give Hadamard matrices of orders 15,896, 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
+Every Williamson-type quadruple of positive odd order $w$ gives a Hadamard matrix of order $12w$ whose rows and columns can be paired into two-by-two Hadamard blocks. We give one pairing of the order-12 Cooper--Wallis design that works for every such quadruple. Turyn's quadruples give infinitely many distinct paired orders. When a conference matrix of order $6w+2$ exists, the published paired-block construction gives a Hadamard matrix of order $8(6w+1)$. At $w=331$ we construct the matrix of order 15,896 and verify every pair of rows. The theorem also gives orders 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
 \end{abstract}
 
 \section{Introduction}
 
 A Hadamard matrix of order $N$ is an $N\times N$ matrix $H$ with entries $\pm1$ and $HH\tr=NI$. Call a Hadamard matrix \emph{paired-block} if its rows and its columns can each be partitioned into ordered pairs so that every $2\times2$ block on a row pair and a column pair is Hadamard. A conference matrix of order $c$ has zero diagonal, $\pm1$ off the diagonal, and row Gram matrix $(c-1)I$.
+
+The pairing in Section~2 produces paired-block Hadamard matrices of infinitely many distinct orders. For example, take $q=5^k$ with $k\ge1$. Each $q$ is a prime power congruent to $1$ modulo $4$, so Turyn's construction~\cite{Tu72} supplies a Williamson-type quadruple of positive odd order $w=(q+1)/2$. The resulting paired orders $12w$ increase with $k$. Passing from these paired orders to orders $8(6w+1)$ requires a conference matrix for the chosen $w$.
 
 Theorem~1 of the order-4792 paper~\cite{Kl4792} gives a Hadamard matrix of order $8m$ from a symmetric or skew-symmetric conference matrix of order $m+1$ and a paired-block Hadamard matrix of order $2(m-1)$, for odd $m\ge3$. That paper supplies pairs for the order-52 Cooper--Wallis design when two of the four Williamson-type members are equal. We give pairs for the order-12 design that work for every Williamson-type quadruple. Taking $m=6w+1$ for a quadruple of order $w$ then gives Hadamard matrices of orders 15,896, 18,008, 18,296 and 23,096. The release includes the matrix of order 15,896 and an all-pairs verification of its Gram matrix. We found no earlier construction of the four orders in the sources searched through November 27, 2026.
 
@@ -105,9 +107,9 @@ Hadamard order $8m$ & $m$ & Conference order $m+1$ & $w$ & Williamson-type sourc
 
 \section{The matrix of order 15,896}
 
-The construction uses Turyn's quadruple of order 331, the paired matrix of order $12\cdot331=3972$, and the Paley skew conference of order $1988$. For the latter, set $Q_{xy}=\chi(y-x)$ for $x,y\in\mathbb F_{1987}$, with $\chi$ the quadratic character extended by $\chi(0)=0$. Border $Q$ by a top row of ones, a left column of minus ones and a zero corner. Applying the order-4792 construction to these inputs gives $8\cdot1987=15896$. The program \texttt{evidence/build.cpp} makes the Turyn input over $\mathbb F_{661}[x]/(x^2-2)$ with primitive element $2+x$, checks the Williamson-type identities, and writes the packed matrix.
+The construction uses Turyn's quadruple of order 331, the paired matrix of order $12\cdot331=3972$, and the Paley skew conference of order $1988$. For the latter, set $Q_{xy}=\chi(y-x)$ for $x,y\in\mathbb F_{1987}$, with $\chi$ the quadratic character extended by $\chi(0)=0$. Border $Q$ by a top row of ones, a left column of minus ones and a zero corner. Applying the order-4792 construction to these inputs gives $8\cdot1987=15896$. The program \texttt{evidence/build.cpp} makes the Turyn input over $\mathbb F_{661}[x]/(x^2-2)$ with primitive element $2+x$, checks the Williamson-type identities, and writes the packed matrix. Appendix~\ref{app:recipe} specifies the same matrix entry by entry.
 
-The $31{,}585{,}352$-byte gzip payload of \texttt{evidence/H15896.packed.gz} holds $15{,}896$ rows of $1{,}987$ bytes. Entries are packed in row-major order, most significant bit first, with $0$ for $+1$ and $1$ for $-1$.
+The uncompressed payload of \texttt{evidence/H15896.packed.gz} has $31{,}585{,}352$ bytes. It holds $15{,}896$ rows of $1{,}987$ bytes. Entries are packed in row-major order, most significant bit first, with $0$ for $+1$ and $1$ for $-1$.
 
 The program \texttt{evidence/verify.cpp} reads only this payload and checks its exact length and the Hamming distance of every two distinct rows. For sign rows the inner product is $N-2d$, where $d$ is their Hamming distance. All $\binom{15896}{2}=126{,}333{,}460$ unordered row pairs have distance $7{,}948$. The diagonal inner products are $15{,}896$ because each entry is a sign. This verifies $HH\tr=15896I$ directly from the bytes.
 
@@ -119,6 +121,62 @@ Kumar's pinned update~\cite{Ku} to Cati and Pasechnik's Table~4~\cite{CP} lists 
 
 \section{Role of AI}
 AI assisted the derivations, the computer verification, the literature search and the exposition under the author's direction. Process-separated AI reviews checked the proofs and certificates; they are not independent expert peer review, and no independent human expert has examined the proofs. The release repository records the sources, the reviews and their dispositions.
+
+\appendix
+\section{Reconstructing the order-15,896 matrix}\label{app:recipe}
+
+The following choices specify each entry of the certificate. All indices start at zero. Write $B=\left(\begin{smallmatrix}1&1\\1&-1\end{smallmatrix}\right)$ and let $\chi_p$ be the quadratic character on $\mathbb F_p$, with $\chi_p(0)=0$.
+
+\subsection*{Four circulant rows and their paired tiles}
+
+Set $q=661$, $w=331$ and work in $\mathbb F_q[\alpha]/(\alpha^2-2)$ with $g=2+\alpha$. For $0\le j\le661$, put
+\[
+ b_j=\chi_q\!\left(( (g^j)^q-g^j )/g^{331}\right).
+\]
+The quotient lies in the base field. For $0\le k<w$, put $r_k=(-1)^k b_{2k}$ and $o_k=(-1)^k b_{2k+1}$. Set $s_k=o_{(k+165)\bmod w}$ and let $e=(1,0,\ldots,0)$ of length $w$. The first rows of $W_1,W_2,W_3,W_4$, in that order, are $s,s,r+e,r-e$. For each matrix, entry $(u,v)$ is its first-row entry at $(v-u)\bmod w$.
+
+Set $m=1987$, $n=(m-1)/2=993$, and $d=2n=6w=1986$. For $0\le x,y<d$, write $x=aw+u$ and $y=bw+v$ with $0\le u,v<w$. Take the tuple in row $a$ and column $b$ of the $6\times6$ tuple table in the proof of Lemma~\ref{lem:pairing}. Replace each signed label $\pm i$ by $\pm(W_i)_{uv}$ and read the result in row-major order as a $2\times2$ matrix $T_{xy}$. Define the second array of tiles by
+\[
+ U_{xy}=-\tfrac12 (B T_{yx} B)^{\mathsf T}.
+\]
+Both arrays consist of signs. The exchanged tile indices and the transpose within the tile both enter this formula.
+
+\subsection*{Conference core and borders}
+
+List the integers from $1$ to $1986$ in two groups, the quadratic residues modulo $m$ first, then the nonresidues, each group in increasing order. Denote the list by $p_0,\ldots,p_{d-1}$. Put $C_{xy}=\chi_m(p_y-p_x)$ and form a $2\times2$ matrix of sums
+\[
+ M_{sa}=\sum_{j=0}^{n-1} C_{sn,\,an+j}\qquad(s,a\in\{0,1\}).
+\]
+The first row of each half suffices because multiplication by a quadratic residue permutes each half transitively and preserves $C$.
+
+On each axis the first eight indices are the border, numbered $0,\ldots,7$. The remaining indices are the tuples $(s,h,c,t,z)$ in lexicographic order, with $s,h,c,z\in\{0,1\}$ and $0\le t<n$. Thus $z$ varies fastest. A row tuple has group index $i=4s+2h+c$ and point index $x=sn+t$. For a column tuple $(a,k,b,u,v)$ the corresponding indices are $j=4a+2k+b$ and $y=an+u$.
+
+Define three $8\times8$ matrices, using these binary decompositions for $i$ and $j$ and writing $[P]$ for the indicator of $P$:
+\[
+ \begin{aligned}
+ R_{ij} &= B_{s k}\bigl(1-2[\,2h+c=2a+b\,]\bigr),\\
+ K_{ij} &= [h=k]\,B_{sa}B_{cb},\\
+ S_{ij} &= [c=b]\,M_{sa}B_{hk}.
+ \end{aligned}
+\]
+Use ordinary matrix multiplication. The upper left corner is $RK/2$. The entry from border row $\ell$ to an interior column in group $j$ is $R_{\ell j}$. The entry from an interior row in group $i$ to border column $\ell$ is $-(SK)_{i\ell}$.
+
+\subsection*{Interior entries and serialization}
+
+For an interior row and column with the tuple coordinates above, the entry is
+\[
+ \begin{cases}
+ C_{xy} B_{hk}, & c=b,\ x\ne y,\\
+ (-1)^{z+v}B_{hk}, & c=b,\ x=y,\\
+ (-1)^{z+v}(T_{xy})_{hk}, & c=0,\ b=1,\\
+ (-1)^{z+v}(U_{xy})_{hk}, & c=1,\ b=0 .
+ \end{cases}
+\]
+There are $8+16n=15{,}896$ rows and columns. Traverse columns in the stated order within each row and rows in the same order. Encode $+1$ as zero and $-1$ as one, with the first bit in each byte the most significant. Each row fills exactly 1,987 bytes. The headerless, uncompressed stream has 31,585,352 bytes and SHA-256
+\begin{center}\small\ttfamily
+93ba6e82b4e8a137a00b2e6898fa03466cd1cb5eb82bca245cefde5eafc77dcf
+\end{center}
+The digest identifies the precise representative and its ordering. An independent orthogonality check requires that every two distinct rows differ in exactly 7,948 positions.
 
 \begin{thebibliography}{99}\small
 \bibitem{CP} M. Cati and D. V. Pasechnik, A database of constructions of Hadamard matrices, \href{https://arxiv.org/abs/2411.18897v2}{arXiv:2411.18897v2} (2025).
