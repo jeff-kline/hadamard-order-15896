@@ -31,4 +31,4 @@ Removing one byte, appending one byte and replacing the payload by zero bytes of
 
 The document build uses pdfTeX 1.40.22 (TeX Live 2021), the default Computer Modern fonts and two compilation passes. The paper's source and the commands in the Makefile allow regeneration.
 
-The final PDF SHA-256 is `9ca8bb8015d796a62acbfc609e63a07373a7749aac2f97d39cb24db986b2a02f`. All five pages were inspected. The PDF uses embedded Type 1 fonts, and its text layer preserves the author's name, ligatures and accented reference names. GitHub's Markdown renderer recognized all 17 inline math spans in the README.
+The final PDF SHA-256 is `a3ab6e52d4b0d2e6da5cc925b45f06f279a77a0ca8727547fda064c231722694`. All five pages were inspected. The PDF uses embedded Type 1 fonts, and its text layer preserves the author's name, ligatures and accented reference names. GitHub's Markdown renderer recognized all 17 inline math spans in the README.
