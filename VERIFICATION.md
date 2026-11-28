@@ -31,4 +31,10 @@ Removing one byte, appending one byte and replacing the payload by zero bytes of
 
 The document build uses pdfTeX 1.40.22 (TeX Live 2021), the default Computer Modern fonts and two compilation passes. The paper's source and the commands in the Makefile allow regeneration.
 
-The final PDF SHA-256 is `a3ab6e52d4b0d2e6da5cc925b45f06f279a77a0ca8727547fda064c231722694`. All five pages were inspected. The PDF uses embedded Type 1 fonts, and its text layer preserves the author's name, ligatures and accented reference names. GitHub's Markdown renderer recognized all 17 inline math spans in the README.
+The tagged PDF SHA-256 is `a3ab6e52d4b0d2e6da5cc925b45f06f279a77a0ca8727547fda064c231722694`. All five pages were inspected. The PDF uses embedded Type 1 fonts, and its text layer preserves the author's name, ligatures and accented reference names. GitHub's Markdown renderer recognized all 17 inline math spans in the README. The repository's reading copy adds the version DOI to the title page. Its SHA-256 is `cd8cf13b45f2d3d077e858abc840c45330adf0f8e3487aed78bb8e47dbb127bd`.
+
+## Archive verification
+
+Zenodo published version `v0.1.0` on November 28, 2026 (UTC). The record credits Jeffery Kline, names the paper, identifies the tagged repository, and classifies the release as software under GPL-3.0-only. Both the version DOI and all-versions DOI resolved to the public record. [Version DOI](https://doi.org/10.5281/zenodo.24615122) · [All versions](https://doi.org/10.5281/zenodo.24615121)
+
+Two downloads of the GitHub API tag zipball taken before release matched the public Zenodo file `jeff-kline/hadamard-order-15896-v0.1.0.zip` byte for byte. Each contains 5,855,349 bytes with SHA-256 `84f407caa4d00f9d9c9b3518c2ec8551299659cc87ee89395e2f71954dfb0f76`. The downloaded file matched Zenodo's MD5 `bb8659a2a94a6fd20459f5c383580dfd` and passed all 20 internal manifest entries. A local Git archive of the same tag independently reproduced SHA-256 `eb7ddc88c220d0f0039b90dc9305cccb201d3d5f970cd76bdf4581b05bdf914e` on two builds.

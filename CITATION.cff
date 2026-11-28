@@ -2,6 +2,12 @@ cff-version: 1.2.0
 message: "Please cite the paper and identify the version used."
 title: "An infinite family of paired Hadamard matrices from Williamson-type matrices"
 version: "0.1.0"
+date-released: 2026-11-28
+doi: "10.5281/zenodo.24615122"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.24615121"
+    description: "All versions of this work"
 type: software
 authors:
   - family-names: Kline

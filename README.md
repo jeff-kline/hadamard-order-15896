@@ -2,7 +2,9 @@
 
 Jeffery Kline
 
-**Version 0.1.0, release candidate.** [Paper](paper/main.pdf) · [TeX source](paper/main.tex) · [Release record](ADMISSION.md)
+**Status: version 0.1.0 admitted November 28, 2026 (UTC).** [Tag v0.1.0](https://github.com/jeff-kline/hadamard-order-15896/tree/v0.1.0) · [Version DOI](https://doi.org/10.5281/zenodo.24615122) · [All versions](https://doi.org/10.5281/zenodo.24615121) · [Release record](ADMISSION.md)
+
+Admission records the checks completed under Kline's research standard. Independent expert peer review remains outstanding. [Paper](paper/main.pdf) · [TeX source](paper/main.tex)
 
 Every Williamson-type quadruple of positive odd order $w$ gives a Hadamard matrix of order $12w$ whose rows and columns can be paired into two-by-two Hadamard blocks. We give one pairing of the order-12 Cooper–Wallis design that works for every such quadruple. Turyn’s quadruples give infinitely many distinct paired orders. When a conference matrix of order $6w+2$ exists, the published paired-block construction gives a Hadamard matrix of order $8(6w+1)$. At $w=331$ we construct the matrix of order 15,896 and verify every pair of rows. The theorem also gives orders 18,008, 18,296 and 23,096. We found no earlier construction at these four orders in the sources searched through November 27, 2026.
 
