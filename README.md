@@ -30,7 +30,9 @@ Miyamoto's theorem applies at real order $8n$ when there is a conference matrix 
 
 ## Orders below 10,000
 
-The documented inputs give 79 final orders below 10,000, all previously known. The Turyn/Spence and Paley conditions in the paper give 27 of them, and the scalar case adds 56. The full table lists the input and earlier evidence for each order. Order 5,912 overlaps Kumar's October 2026 discovery. His main-branch certificate is dated October 29, four weeks before this note. Order 8,696 was already obtainable by an older construction. [All 79 orders](audit/orders-below-10000.tsv) · [Recent and sporadic comparisons](audit/FINAL-PRIOR-ART.md#small-orders)
+**Order 5,912 was still open when Kishan Kumar constructed it by Spence's method in late October 2026.** His certificate is dated October 28 and appeared on his main branch on October 29, just 29 days before our November 27 paper. Our family reaches the same order by a different construction. At $w=123$ the pairing gives a Hadamard matrix of order 1,476, which combines with a Paley conference matrix of order 740 to give order 5,912. In a separate build we checked all 17,472,916 distinct row pairs. Each pair differed in exactly 2,956 entries. The v0.1.0 archive contains the order-15,896 builder and certificate. [Kumar’s October 28 certificate](https://github.com/vatskishan03/Hadamard/commit/57396b07a1eed267fb5837f1e44b221e0043b50d) · [October 29 main-branch certificate](https://github.com/vatskishan03/Hadamard/commit/ef6a4edb9b9a555eb1786a329cb718efb8c9460c)
+
+The documented inputs give 79 final orders below 10,000, all previously known. The Turyn/Spence and Paley conditions in the paper give 27 of them, and the scalar case adds 56. The full table lists the input and earlier evidence for each order. Order 8,696 was already obtainable by an older construction. [All 79 orders](audit/orders-below-10000.tsv) · [Recent and sporadic comparisons](audit/FINAL-PRIOR-ART.md#small-orders)
 
 ## Rebuild and verify
 
